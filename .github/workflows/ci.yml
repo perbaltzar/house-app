@@ -12,4 +12,5 @@ jobs:
     runs-on: ubuntu-latest
     name: Run tests
     steps:
-      - run: npm test
+      - run: npm install
+      - run: npm run test
