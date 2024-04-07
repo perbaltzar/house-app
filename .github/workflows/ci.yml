@@ -1,0 +1,15 @@
+name: Run tests
+on:
+  push:
+    branches:
+      - feature/test-setup
+  pull_request:
+    branches:
+      - dev
+      - main
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    name: Run tests
+    steps:
+      - run: npm test
