@@ -5,8 +5,9 @@ type ButtonProps = {
   onClick?: () => void;
 } & ButtonHTMLAttributes<HTMLButtonElement>; // This is a type for all props that a button element accept in HTML
 
-// Deconstruction with ...props, will collect all other props that are not specified by name, in this case onClick and text.
+// Deconstruction with ...props, will collect all props that are not specified picked by name like onClick and text.
 export const Button = ({ onClick, text, ...props }: ButtonProps) => {
+  // Spread the props to the button element to pass all props that are not specified to the button element
   return (
     <button onClick={onClick} aria-label={text} {...props}>
       {text}

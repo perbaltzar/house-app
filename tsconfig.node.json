@@ -6,7 +6,7 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "baseUrl": "./src",
+    "baseUrl": "./src"
   },
   "include": ["vite.config.ts"]
 }
