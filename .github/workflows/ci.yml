@@ -1,17 +1,15 @@
 name: Run tests
 on:
   push:
-    branches:
-      - feature/test-setup
   pull_request:
     branches:
       - dev
       - main
 jobs:
   run-tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # which machine to run the tests on
     name: Run tests
     steps:
-      - uses: actions/checkout@v3
-      - run: npm install
+      - uses: actions/checkout@v3 # checkout to access the code
+      - run: npm install # dependencies don't exist in github actions so we need to install them
       - run: npm run test
