@@ -12,5 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Run tests
     steps:
+      - uses: actions/checkout@v3
       - run: npm install
       - run: npm run test
