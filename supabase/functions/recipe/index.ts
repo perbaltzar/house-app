@@ -1,7 +1,8 @@
 import { createClient } from "npm:@supabase/supabase-js@2.42.0";
 import { getOrCreateIngredientsFromNames } from "./ingredientFunctions.ts";
+import { Database } from "./types/supabase.ts";
 
-const supabase = createClient(
+const supabase = createClient<Database>(
   Deno.env.get("SUPABASE_URL")!,
   Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
 );
@@ -31,8 +32,6 @@ Deno.serve({ path: "add" }, async (req) => {
     name,
   }]).select();
 
-  console.log({ status, statusText, data });
-
   if (!data) {
     return new Response(
       JSON.stringify("Failed to create recipe"),
@@ -50,8 +49,18 @@ Deno.serve({ path: "add" }, async (req) => {
     "recipe_ingredient",
   ).insert(recipeIngredients);
 
+  const responseData = {
+    ...data[0],
+    ingredients: allIngredients,
+  };
+
   return new Response(
-    JSON.stringify("Success"),
-    { headers: { "Content-Type": "application/json" }, status, statusText },
+    JSON.stringify({ message: statusText, data: responseData }),
+    {
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+    },
   );
 });

@@ -1,4 +1,5 @@
 import { ButtonHTMLAttributes } from 'react';
+import './Button.css';
 
 type ButtonProps = {
   text: string;
@@ -9,7 +10,7 @@ type ButtonProps = {
 export const Button = ({ onClick, text, ...props }: ButtonProps) => {
   // Spread the props to the button element to pass all props that are not specified to the button element
   return (
-    <button onClick={onClick} aria-label={text} {...props}>
+    <button className="button" onClick={onClick} aria-label={text} {...props}>
       {text}
     </button>
   );

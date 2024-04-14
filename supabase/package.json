@@ -1,0 +1,13 @@
+{
+    "name": "house-app",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+      "start": "supabase start",
+      "stop": "supabase stop",
+      "types": "supabase gen types typescript --project-id \"jkqlmnyugxxyeanwqjxz\" --schema public > types/supabase.ts",
+      "types:local": "supabase gen types typescript --local types/supabase.ts"
+    }
+  }
+  

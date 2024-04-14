@@ -1,8 +1,9 @@
 import { SupabaseClient } from "npm:@supabase/supabase-js@2.42.0";
+import { Database } from "./types/supabase.ts";
 
 export const getOrCreateIngredientsFromNames = async (
   ingredientNames: string[],
-  client: SupabaseClient,
+  client: SupabaseClient<Database>,
 ) => {
   const existingIngredients = await client.from("ingredient").select("*").in(
     "name",

@@ -1,0 +1,15 @@
+:root {
+  --background-color: #f8faa0;
+  --primary-color-light: #ff7b8a;
+  --primary-color: #ff4059;
+  --primary-color-dark: #c60055;
+}
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: 'Noto Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}

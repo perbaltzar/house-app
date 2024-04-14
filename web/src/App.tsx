@@ -1,12 +1,17 @@
-import { Button } from 'components/common/Button/Button';
+import { RecipeForm } from 'components/forms/RecipeForm';
+import { PageWrapper } from 'components/layouts/PageWrapper';
+import { Heading } from 'components/typography/Heading/Heading';
 import { Providers } from 'hooks/Providers';
+import './root.css';
 
 export const App = () => {
   return (
     <Providers>
       <main>
-        <h1>Receptboken</h1>
-        <Button text="Klick" />
+        <PageWrapper>
+          <Heading>Receptboken</Heading>
+          <RecipeForm />
+        </PageWrapper>
       </main>
     </Providers>
   );
